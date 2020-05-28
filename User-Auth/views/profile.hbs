@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="/js/profile.js"></script>
+</head>
+<body>
+    <h1>PROFILE</h1>
+    <table cellspacing="10" cellpadding="10" border="1">
+        <tr>
+        <th>UserId</th>
+        <td>{{user.id}}</td>
+        </tr>
+        <tr>
+        <th>Username</th>
+        <td>{{user.username}}</td>
+        </tr>
+        <tr>
+        <th>Email Id</th>
+        <td>{{user.email}}</td>
+        </tr>
+        <a href="/logout">LOGOUT</a>
+        
+    </table>
+
+    <br><br><br>
+     <div id="chatBox">
+
+        <input id="inpToUser" placeholder="Send to (default everyone)">
+        <input id="inpNewMsg" placeholder="New Message">
+        <button id="btnSendMsg">SEND</button>
+        <ul id="ulMsgs">
+
+        </ul>
+
+    </div>
+
+</body>
+</html>
