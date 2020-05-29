@@ -102,6 +102,8 @@ app.get('/logout',(req,res)=>{
 // })
 
 app.post('/addproduct',async (req,res)=>{
+    console.log(req.body)
+    console.log("*-*-*-*-*-*-**-*-*-")
     const product=await Products.create({
         username:req.body.username,
         name:req.body.name,
@@ -118,6 +120,6 @@ app.get('/product',async (req,res)=>{
 
 db.sync()
   .then(() => {
-    app.listen(2246, () => console.log('started on http://localhost:2246'))
+    app.listen(2346, () => console.log('started on http://localhost:2346'))
   })
   .catch(console.error)

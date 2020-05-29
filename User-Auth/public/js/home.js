@@ -11,10 +11,11 @@
             <div class="card m-2">
               <div class="card-body">
                 <h5 class="card-title">${p.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${p.price}</h6>
                 <p class="card-text">
                   ${p.company}
                 </p>
+                <h6 class="card-subtitle mb-2 text-muted">Rs. ${p.price}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">${p.username}</h6>
                 </div>
             </div>
           </div>
