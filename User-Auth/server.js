@@ -1,22 +1,24 @@
-const http=require('http')
+// const http=require('http')
 
 const express=require('express')
 const session=require('express-session')
-const socketio=require('socket.io')
+// const socketio=require('socket.io')
 
 const app=express()
 
-const server=http.createServer(app)
-const io=socketio(server)// to work with socket on server named server
-// it includes a js file at path /socket.io/socket.io.js
+// const server=http.createServer(app)
+// const io=socketio(server)// to work with socket on server named server
+// // it includes a js file at path /socket.io/socket.io.js
 
 
-const{ db,Users }=require('./db')
+const{ db,Users,Products }=require('./db')
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/', express.static(__dirname + '/public'))
-app.use('/sock', express.static(__dirname + '/node_modules'))
+// app.use('/sock', express.static(__dirname + '/node_modules'))
+// makes this folder available to public
+
 
 app.set('view engine','hbs')
 app.use(session({
@@ -81,25 +83,38 @@ app.get('/logout',(req,res)=>{
     res.redirect('login')
 })
 
-let socketmap={}
-io.on('connection',(socket)=>{
-    console.log('Connected with socket id = ',socket.id)
+// let socketmap={}
+// io.on('connection',(socket)=>{
+//     console.log('Connected with socket id = ',socket.id)
 
 
-    socket.on('msg_send',(data)=>{
-        data.from=socketmap[socket.id]
-        if(data.to)
-        {
-            io.to(data.to).emit('msg_rcvd',data)
-        }
-        else
-        {
-            socket.broadcast.emit('msg_rcvd',data)
-        }
+//     socket.on('msg_send',(data)=>{
+//         data.from=socketmap[socket.id]
+//         if(data.to)
+//         {
+//             io.to(data.to).emit('msg_rcvd',data)
+//         }
+//         else
+//         {
+//             socket.broadcast.emit('msg_rcvd',data)
+//         }
+//     })
+// })
+
+app.post('/addproduct',async (req,res)=>{
+    const product=await Products.create({
+        username:req.body.username,
+        name:req.body.name,
+        price:req.body.price,
+        company:req.body.company
     })
+    res.status(201).send(` Product ${product.id} created successfully`)
 })
-
-
+app.get('/product',async (req,res)=>{
+    const product=await Products.findAll()
+    res.send(product)
+    
+})
 
 
 db.sync()

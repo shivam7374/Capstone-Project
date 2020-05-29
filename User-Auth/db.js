@@ -24,6 +24,29 @@ const Users=db.define('user',{
         allowNull:false
     }
 })
+const Products=db.define('product',{
+    id:{
+        type:sequelize.DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true
+    },
+    username:{
+        type:sequelize.DataTypes.STRING(30),
+        allowNull:false
+    },
+    name:{
+        type:sequelize.DataTypes.STRING(100),
+        allowNull:false
+    },
+    price:{
+        type:sequelize.DataTypes.STRING,
+        allowNull:false
+    },
+    company:{
+        type:sequelize.DataTypes.STRING,
+        allowNull:true
+    }
+})
 module.exports={
-    db,Users
+    db,Users,Products
 }
