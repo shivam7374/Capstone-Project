@@ -1,4 +1,5 @@
 let socket=io()
+    console.log("socket id",socket)
 $('#btnSendMsg').click(()=>{
     socket.emit('msg_send',{
         to:$('#inpToUser').val(),

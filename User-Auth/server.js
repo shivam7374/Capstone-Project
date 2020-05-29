@@ -16,6 +16,7 @@ const{ db,Users }=require('./db')
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/', express.static(__dirname + '/public'))
+app.use('/sock', express.static(__dirname + '/node_modules'))
 
 app.set('view engine','hbs')
 app.use(session({
@@ -103,6 +104,6 @@ io.on('connection',(socket)=>{
 
 db.sync()
   .then(() => {
-    app.listen(2254, () => console.log('started on http://localhost:2254'))
+    app.listen(2256, () => console.log('started on http://localhost:2256'))
   })
   .catch(console.error)
