@@ -113,12 +113,11 @@ app.post('/addproduct',async (req,res)=>{
 app.get('/product',async (req,res)=>{
     const product=await Products.findAll()
     res.send(product)
-    
 })
 
 
 db.sync()
   .then(() => {
-    app.listen(2256, () => console.log('started on http://localhost:2256'))
+    app.listen(2246, () => console.log('started on http://localhost:2246'))
   })
   .catch(console.error)
