@@ -114,14 +114,20 @@ app.get('/logout',(req,res)=>{
 //     })
 // })
 
-app.post('/addproduct',async (req,res)=>{
+app.post('/addproduct',upload.single('avatar'),async (req,res)=>{
     console.log(req.body)
     console.log("*-*-*-*-*-*-**-*-*-")
+    const oldpath=__dirname+'/uploads/'+req.file.filename
+    const newpath=__dirname+'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
+    
+    await fs.rename(oldpath,newpath)
+
     const product=await Products.create({
         username:req.body.username,
         name:req.body.name,
         price:req.body.price,
-        company:req.body.company
+        company:req.body.company,
+        avatar:'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
     })
     res.status(201).send(` Product ${product.id} created successfully`)
 })

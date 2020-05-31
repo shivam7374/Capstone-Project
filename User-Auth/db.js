@@ -48,6 +48,9 @@ const Products=db.define('product',{
     company:{
         type:sequelize.DataTypes.STRING,
         allowNull:true
+    },
+    avatar:{
+        type:sequelize.DataTypes.STRING
     }
 })
 module.exports={

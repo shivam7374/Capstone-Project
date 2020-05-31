@@ -9,6 +9,7 @@
           $(`
           <div class="col-4">
             <div class="card m-2">
+            <img src="${p.avatar}" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">${p.name}</h5>
                 <p class="card-text">
