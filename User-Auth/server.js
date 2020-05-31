@@ -98,6 +98,7 @@ app.get('/logout',(req,res)=>{
 })
 
 let socketmap={}
+let userinroom={}
 io.on('connection',(socket)=>{
     console.log('Connected with socket id = ',socket.id)
     
@@ -106,21 +107,28 @@ io.on('connection',(socket)=>{
         s.emit('logged_in')
         socketmap[s.id]=u
         console.log(socketmap)
+        userinroom[u]=1
+    }
+    function logout(s,u) {
+        userinroom[u]=0
+        s.emit('logged_out')
     }
 
     socket.on('login',(data)=>{
             login(socket,data.username)
     })
-
+    socket.on('logout',(data)=>{
+        logout(socket,data.username)
+    })
     socket.on('msg_send',(data)=>{
         data.from=socketmap[socket.id]
-        if(data.to)
+        if(userinroom[data.to])
         {
             io.to(data.to).emit('msg_rcvd',data)
         }
-        else
+        else 
         {
-            socket.broadcast.emit('msg_rcvd',data)
+            io.to(data.from).emit('msg_rcvd',{msg:'Reciver is currently not in CHAT ROOM or no user with this username please check and try again !'})
         }
     })
 })
