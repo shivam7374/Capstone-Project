@@ -22,6 +22,9 @@ const Users=db.define('user',{
     password:{
         type:sequelize.DataTypes.STRING,
         allowNull:false
+    },
+    avatar:{
+        type:sequelize.DataTypes.STRING
     }
 })
 const Products=db.define('product',{

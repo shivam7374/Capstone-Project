@@ -9,10 +9,15 @@ const app=express()
 // const server=http.createServer(app)
 // const io=socketio(server)// to work with socket on server named server
 // // it includes a js file at path /socket.io/socket.io.js
-
+const multer=require('multer')
+const fs=require('fs').promises
 
 const{ db,Users,Products }=require('./db')
 
+const upload=multer({dest:'uploads/'})
+
+
+app.use('/images',express.static(__dirname+'/images'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/', express.static(__dirname + '/public'))
@@ -33,11 +38,19 @@ app.get('/',(req,res)=>{
 app.get('/signup',(req,res)=>{
     res.render('signup')
 })
-app.post('/signup',async (req,res)=>{
+app.post('/signup',upload.single('avatar'),async (req,res)=>{
+    console.log('req.body',req.body)
+    console.log('req.file',req.file)
+    const oldpath=__dirname+'/uploads/'+req.file.filename
+    const newpath=__dirname+'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
+    
+    await fs.rename(oldpath,newpath)
+
     const user=await Users.create({
         username:req.body.username,
         password:req.body.password,
-        email:req.body.email
+        email:req.body.email,
+        avatar:'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
 
     })
     res.status(201).send(` User ${user.id} created `)
