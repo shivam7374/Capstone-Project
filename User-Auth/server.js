@@ -58,6 +58,8 @@ app.post('/signup',upload.single('avatar'),async (req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('login')
 })
+
+
 app.post('/login',async (req,res)=>{
     const user=await Users.findOne({where:{
         username:req.body.username
@@ -98,21 +100,30 @@ app.get('/logout',(req,res)=>{
 let socketmap={}
 io.on('connection',(socket)=>{
     console.log('Connected with socket id = ',socket.id)
+    
+    function login(s,u) {
+        s.join(u)
+        s.emit('logged_in')
+        socketmap[s.id]=u
+        console.log(socketmap)
+    }
 
+    socket.on('login',(data)=>{
+            login(socket,data.username)
+    })
 
-    // socket.on('msg_send',(data)=>{
-    //     data.from=socketmap[socket.id]
-    //     if(data.to)
-    //     {
-    //         io.to(data.to).emit('msg_rcvd',data)
-    //     }
-    //     else
-    //     {
-    //         socket.broadcast.emit('msg_rcvd',data)
-    //     }
-    // })
+    socket.on('msg_send',(data)=>{
+        data.from=socketmap[socket.id]
+        if(data.to)
+        {
+            io.to(data.to).emit('msg_rcvd',data)
+        }
+        else
+        {
+            socket.broadcast.emit('msg_rcvd',data)
+        }
+    })
 })
-
 app.post('/addproduct',upload.single('avatar'),async (req,res)=>{
     console.log(req.body)
     console.log("*-*-*-*-*-*-**-*-*-")
