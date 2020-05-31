@@ -1,14 +1,14 @@
-// const http=require('http')
+const http=require('http')
 
 const express=require('express')
 const session=require('express-session')
-// const socketio=require('socket.io')
+const socketio=require('socket.io')
 
 const app=express()
 
-// const server=http.createServer(app)
-// const io=socketio(server)// to work with socket on server named server
-// // it includes a js file at path /socket.io/socket.io.js
+const server=http.createServer(app)
+const io=socketio(server)// to work with socket on server named server
+// it includes a js file at path /socket.io/socket.io.js
 const multer=require('multer')
 const fs=require('fs').promises
 
@@ -21,7 +21,6 @@ app.use('/images',express.static(__dirname+'/images'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/', express.static(__dirname + '/public'))
-// app.use('/sock', express.static(__dirname + '/node_modules'))
 // makes this folder available to public
 
 
@@ -96,23 +95,23 @@ app.get('/logout',(req,res)=>{
     res.redirect('login')
 })
 
-// let socketmap={}
-// io.on('connection',(socket)=>{
-//     console.log('Connected with socket id = ',socket.id)
+let socketmap={}
+io.on('connection',(socket)=>{
+    console.log('Connected with socket id = ',socket.id)
 
 
-//     socket.on('msg_send',(data)=>{
-//         data.from=socketmap[socket.id]
-//         if(data.to)
-//         {
-//             io.to(data.to).emit('msg_rcvd',data)
-//         }
-//         else
-//         {
-//             socket.broadcast.emit('msg_rcvd',data)
-//         }
-//     })
-// })
+    // socket.on('msg_send',(data)=>{
+    //     data.from=socketmap[socket.id]
+    //     if(data.to)
+    //     {
+    //         io.to(data.to).emit('msg_rcvd',data)
+    //     }
+    //     else
+    //     {
+    //         socket.broadcast.emit('msg_rcvd',data)
+    //     }
+    // })
+})
 
 app.post('/addproduct',upload.single('avatar'),async (req,res)=>{
     console.log(req.body)
@@ -139,6 +138,6 @@ app.get('/product',async (req,res)=>{
 
 db.sync()
   .then(() => {
-    app.listen(2346, () => console.log('started on http://localhost:2346'))
+    server.listen(2346, () => console.log('started on http://localhost:2346'))
   })
   .catch(console.error)
