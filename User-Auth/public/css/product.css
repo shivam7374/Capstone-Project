@@ -1,0 +1,10 @@
+div.container-product img{
+    width: 33%;
+    height:100%;
+    
+}
+div.container-product div{
+    flex-wrap: wrap;
+    display: inline;
+    width: 33%;
+}
