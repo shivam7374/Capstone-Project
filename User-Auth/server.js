@@ -13,6 +13,7 @@ const multer=require('multer')
 const fs=require('fs').promises
 
 const{ db,Users,Products }=require('./db')
+const { mypostsRoute } = require('./routes/myposts')
 
 const upload=multer({dest:'uploads/'})
 
@@ -22,6 +23,9 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/', express.static(__dirname + '/public'))
 // makes this folder available to public
+
+app.use('/api/myposts', mypostsRoute)
+
 app.get('/:id/product',(req,res)=>{
     res.render('product')
 })
