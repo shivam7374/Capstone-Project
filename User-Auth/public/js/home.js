@@ -8,8 +8,10 @@
         $('#products-container').append(
           $(`
           <div class="col-4">
-            <div class="card m-2">
+            <div class="card m-2"> 
+            <a href="/${p.id}/product">
             <img src="${p.avatar}" class="card-img-top">
+            </a>
               <div class="card-body">
                 <h5 class="card-title">${p.name}</h5>
                 <p class="card-text">

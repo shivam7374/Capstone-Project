@@ -22,7 +22,9 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/', express.static(__dirname + '/public'))
 // makes this folder available to public
-
+app.get('/:id/product',(req,res)=>{
+    res.render('product')
+})
 
 app.set('view engine','hbs')
 app.use(session({
