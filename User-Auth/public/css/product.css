@@ -5,6 +5,10 @@ div.container-product img{
 }
 div.container-product div{
     flex-wrap: wrap;
-    display: inline;
-    width: 33%;
+    /* display: inline; */
+    /* width: 33%; */
+}
+.quantity{
+    width: 6%;
+    text-align: center;
 }
