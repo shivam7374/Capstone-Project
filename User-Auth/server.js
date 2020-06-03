@@ -88,6 +88,11 @@ app.post('/login',async (req,res)=>{
     res.redirect('/profile')
 })
 
+
+app.get('/:productsid/cart',(req,res)=>{
+    res.render('cart')
+})
+
 app.get('/profile',async (req,res)=>{
     if(!req.session.userId)
     {
