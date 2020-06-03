@@ -3,7 +3,8 @@
     $('#cartlist').hide()
   
     let cart=document.getElementById('cart')
-  setInterval(function(){cart.innerHTML=`<a class="navbar-brand" href=${linkcart}>Cart</a>`}, 1000)
+    setInterval(function(){cart.innerHTML=`<a class="navbar-brand" href=${linkcart}>
+    <img class="d-inline cart" src="../assets/cart.png">Cart</a>`}, 1000)
   })
   
   
