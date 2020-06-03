@@ -1,3 +1,4 @@
+let set
 $(()=>{
 // let test=document.getElementById('test')
     test=document.URL
@@ -7,14 +8,26 @@ $(()=>{
 //   document.getElementById('test').innerHTML=res2[0]
 let res3=res2[0].split('-')
 // document.getElementById('test').innerHTML=res3
-let set = new Set(res3)
+set = new Set(res3)
     // document.getElementById('test').innerHTML=set[0]
-    console.log(set)
-    console.log(res3)
-    const iterator1 = set.values();
+    // console.log(set)
+    // console.log(res3)
+    // const iterator1 = set.values();
 
-console.log(iterator1.next().value);
-// expected output: 42
+// console.log(iterator1.next().value);
 
-console.log(iterator1.next().value);
+// console.log(iterator1.next().value);
+    // const iterator = set.values()
+    // while(iterator!==null)
+    // {
+    //     console.log(iterator.next().value)
+    // }
+    for (item of set.values())
+{     //document.write(item+",");
+    //  document.getElementById('demo').innerHTML="The set value is: "+ item;
+    console.log(item)
+} 
+
 })
+
+
