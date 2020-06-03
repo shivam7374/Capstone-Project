@@ -1,6 +1,7 @@
   let linkcart="/0/cart"
-  
   $(()=>{
+    $('#cartlist').hide()
+  
     let cart=document.getElementById('cart')
   setInterval(function(){cart.innerHTML=`<a class="navbar-brand" href=${linkcart}>Cart</a>`}, 1000)
   })
@@ -39,6 +40,7 @@
   }
   // let pos=2
 function btnclicked(product){
+  $('#cartlist').show()
   $('#cartvalue').append(`
   <li>${product}</li>`)
   linkcart=linkcart.substr(0,2) +"-"+`${product}`+ linkcart.substr(2)
