@@ -168,6 +168,6 @@ app.get('/product',async (req,res)=>{
 
 db.sync()
   .then(() => {
-    server.listen(2346, () => console.log('started on http://localhost:2346'))
+    server.listen(2244, () => console.log('started on http://localhost:2244'))
   })
   .catch(console.error)

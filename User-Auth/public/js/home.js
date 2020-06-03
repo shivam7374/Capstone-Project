@@ -37,10 +37,9 @@
       }
     })
   }
-  let pos=2
+  // let pos=2
 function btnclicked(product){
   $('#cartvalue').append(`
   <li>${product}</li>`)
-  linkcart=linkcart.substr(0, pos) + `${product}` + linkcart.substr(pos)
-  pos=pos+length(`${product}`)
+  linkcart=linkcart.substr(0,2) +"-"+`${product}`+ linkcart.substr(2)
 }
