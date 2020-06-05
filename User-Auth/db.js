@@ -38,7 +38,7 @@ const Products=db.define('product',{
         allowNull:false
     },
     name:{
-        type:sequelize.DataTypes.STRING(100),
+        type:sequelize.DataTypes.STRING(1000),
         allowNull:false
     },
     price:{
@@ -64,7 +64,7 @@ const CartProducts=db.define('product',{
         allowNull:false
     },
     name:{
-        type:sequelize.DataTypes.STRING(100),
+        type:sequelize.DataTypes.STRING(1000),
         allowNull:false
     },
     price:{

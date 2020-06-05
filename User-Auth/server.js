@@ -58,7 +58,7 @@ app.post('/signup',upload.single('avatar'),async (req,res)=>{
         avatar:'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
 
     })
-    res.status(201).send(` User ${user.id} created `)
+    res.redirect('/login')
 })
 
 app.get('/login',(req,res)=>{
@@ -158,7 +158,17 @@ app.post('/addproduct',upload.single('avatar'),async (req,res)=>{
         company:req.body.company,
         avatar:'/images/'+'avatar_'+req.body.originalname+req.body.username+req.body.name+req.body.price+req.body.company+'.'+req.file.mimetype.split('/').pop()
     })
-    res.status(201).send(` Product ${product.id} created successfully`)
+    res.status(201).send(` 
+    Product ${product.id} created successfully
+    <script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+    <br><br><br><br>
+    <button onclick="goBack()">Go Back To Profile Page to add another product.</button>
+
+    `)
 })
 app.get('/product',async (req,res)=>{
     const product=await Products.findAll()
@@ -168,6 +178,6 @@ app.get('/product',async (req,res)=>{
 
 db.sync()
   .then(() => {
-    server.listen(2244, () => console.log('started on http://localhost:2244'))
+    server.listen(2246, () => console.log('started on http://localhost:2246'))
   })
   .catch(console.error)
