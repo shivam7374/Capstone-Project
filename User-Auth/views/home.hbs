@@ -19,7 +19,9 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <form style="text-align: center;" action="javascript:void();" onsubmit="if(this.t1.value!='')parent.findString(this.t1.value);return(false);"><input type="text" id="t1" name="t1" placeholder="Search Product" size="20"><input type="submit" name="b1" value="Search"></form>
   <div class="collapse navbar-collapse" id="navbarNav">
+      
     <div class="ml-auto px-2 m-1">
       <span id="nav-username" class="text-secondary font-weight-bold m-1">
           &nbsp;&nbsp;
@@ -31,6 +33,7 @@
   </div>
 </nav>
 <br>
+
 <div id="cart" style="text-align:right"></div>
 <h1 class="h1 text-center">Products</h1>
 
@@ -65,13 +68,13 @@
 <button onclick="btnclicked(2)">Addtocart</button>
 <button onclick="btnclicked(3)">Addtocart</button>
 <button onclick="btnclicked(4)">Addtocart</button> --}}
-<div id="cartlist">
+{{!-- <div id="cartlist">
 Items With Product Id Below Are Added To Cart
 <br>
 <ul id="cartvalue">
 
 </ul>
-</div>
+</div> --}}
 <h1>Recently Added</h1>
 <div class="container my-2">
 
@@ -303,33 +306,17 @@ Items With Product Id Below Are Added To Cart
           <h4 class="font-rubik font-size-20">Amma Zon</h4>
           <p class="font-size-14 font-rale text-white-50">A Complete Family Shopping.</p>
         </div>
-        <div class="col-lg-4 col-12">
-          <h4 class="font-rubik font-size-20">Newsletter</h4>
-          <form class="form-row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Email *">
-            </div>
-            <div class="col">
-              <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
-            </div>
-          </form>
-        </div>
         <div class="col-lg-2 col-12">
           <h4 class="font-rubik font-size-20">Information</h4>
           <div class="d-flex flex-column flex-wrap">
             <a href="#" class="font-rale font-size-14 text-white-50 pb-1">About Us</a>
-            <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Delivery Information</a>
-            <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Privacy Policy</a>
-            <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Terms & Conditions</a>
           </div>
         </div>
         <div class="col-lg-2 col-12">
           <h4 class="font-rubik font-size-20">Account</h4>
           <div class="d-flex flex-column flex-wrap">
             <a href="#" class="font-rale font-size-14 text-white-50 pb-1">My Account</a>
-            <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Order History</a>
             <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Wish List</a>
-            <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Newsletters</a>
           </div>
         </div>
       </div>
