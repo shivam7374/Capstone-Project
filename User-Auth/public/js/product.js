@@ -1,7 +1,7 @@
 function loadProductsbyId() {
     //   console.log("JS Loaded Successfully")
     let start, end
-    start = (document.URL.search("46/") + 3)
+    start = (document.URL.search("44/") + 3)
     end = document.URL.search("/product")
     let id = parseInt(document.URL.slice(start, end))
     $.get('/api/myposts/'+id, (products) => {
@@ -11,6 +11,7 @@ function loadProductsbyId() {
       for (let p of products) {
         $('#products-container').append(
           $(`
+          <center>
           <div class="col-4">
             <div class="card m-2"> 
             <a href="/${p.id}/product">
@@ -26,11 +27,33 @@ function loadProductsbyId() {
                 </div>
             </div>
           </div>
-          
+          </center>
+          `)
+        )
+        $('#container-product').append(
+          $(`
+          <div><img src="${p.avatar}"></div>
+          </div>
+          <div><h1>Details</h1>
+                    <div class="card-body">
+                    <h3 class="card-title">Product Id : ${p.id}</h5>  
+                    <h3 class="card-title">Product Name : ${p.name}</h5>
+                      <h3><p class="card-text">
+                        Product Compay : ${p.company}
+                      </p></h3>
+                      <h3 class="card-subtitle mb-2">Product Price : Rs. ${p.price}</h6>
+                      <h3 class="card-subtitle mb-2">Product Seller Username : ${p.username}</h6>
+                      Login in to Your Account To know more about the product by Contacting the Seller Via CHAT ROOM
+                      </div>
+                  
+          </div>
+      
           `)
         )
       }
     })
   }
+
+  
 
   
