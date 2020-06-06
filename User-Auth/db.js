@@ -1,10 +1,15 @@
-const sequelize=require('sequelize')
+const sequelize = require('sequelize')
 
-const db=new sequelize({
-    dialect:'sqlite',
-    storage:__dirname+'/users.db'
-})
+let db;
 
+if (process.env.DATABASE_URL) {
+  db = new sequelize(process.env.DATABASE_URL)
+} else {
+  db = new sequelize({
+    dialect: 'sqlite',
+    storage: __dirname + '/test.db'
+  })
+}
 const Users=db.define('user',{
     id:{
         type:sequelize.DataTypes.INTEGER,

@@ -17,6 +17,7 @@ const { mypostsRoute } = require('./routes/myposts')
 
 const upload=multer({dest:'uploads/'})
 
+const PORT = process.env.PORT || 2246
 
 app.use('/images',express.static(__dirname+'/images'))
 app.use(express.urlencoded({extended:true}))
@@ -181,6 +182,6 @@ app.get('/togetstarted',(req,res)=>{
 
 db.sync()
   .then(() => {
-    server.listen(2246, () => console.log('started on http://localhost:2246'))
+    server.listen(PORT, () => console.log(`started on http://localhost:${PORT}`))
   })
   .catch(console.error)
