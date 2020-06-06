@@ -1,7 +1,7 @@
 function loadProductsbyId() {
     //   console.log("JS Loaded Successfully")
     let start, end
-    start = (document.URL.search("44/") + 3)
+    start = (document.URL.search("46/") + 3)
     end = document.URL.search("/product")
     let id = parseInt(document.URL.slice(start, end))
     $.get('/api/myposts/'+id, (products) => {

@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>
-<link rel="stylesheet" href="/css/cart.css">
-    <script src="/js/cart.js"></script>
+    <link rel="stylesheet" href="/css/about.css">
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-top">
   <a class="navbar-brand" href="/">AMMA ZON</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <form style="text-align: center;" action="javascript:void();" onsubmit="if(this.t1.value!='')parent.findString(this.t1.value);return(false);"><input type="text" id="t1" name="t1" placeholder="Search Product" size="20"><input type="submit" name="b1" value="Search"></form>
   <div class="collapse navbar-collapse" id="navbarNav">
+      
     <div class="ml-auto px-2 m-1">
       <span id="nav-username" class="text-secondary font-weight-bold m-1">
           &nbsp;&nbsp;
@@ -31,42 +31,39 @@
 </nav>
 <br>
 
-    <h1><center>Cart Products</center></h1>
-    <br><br>
-    <div id="test"></div>
-    <br><br>
-    <div class="container my-2">
-
-  <div class="row" id="products-container"> 
-  </div>
-  <br><br><br>
-   <h1>Bill Table:-</h1>
-   <h4 style="display: inline;">Reciept Id - <div style="display: inline;" id="recieptid"></div></h4>
-  <br><br>
-  
-   <table class="table table-hover" id="table">
-  <thead>
-    <tr>
-      <th scope="col">Product Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Company</th>
-      <th scope="col">Seller Username</th>
-    </tr>
-  </thead>
-  <tbody id="bill">
-  </tbody>
-</table>
-<div id="numberofitems"></div>
-<div id="totalamount"></div>
-</div>
-<center>
-<button onclick="window.print()">Print Bill Reciept</button>
-</center>
-<br><br><br>
-
-
-  {{!-- FOOTER --}}
+    <div id="heading">
+        <h1>To Get Started</h1>
+    </div>
+    <div id="body">
+        1) Just After Entering the Site You would be able to see the Product's Available.
+        <br><br>
+        2) You do not need any login or signup for seeing the products.
+        <br><br>
+        3) Add your favourite products to your cart and also download the bill reciept.
+        <br><br>
+        <img src="/assets/Home Screenshot from 2020-06-06 12-06-57.png">
+        <img src="/assets/Home Screenshot from 2020-06-06 12-07-06.png">
+        <img src="/assets/Home Screenshot from 2020-06-06 12-07-16.png">
+        <br><br>
+        4) After that you can signup 
+        if you are new to the site or directly login if you already have an account.
+        <br><br>
+        <img src="/assets/SignupScreenshot from 2020-06-06 12-07-49.png">
+        <img src="/assets/Login Screenshot from 2020-06-06 12-07-40.png">
+        <br><br>
+        5) Here you are provided with an amazing feature(Chatroom) 
+        to talk to the seller of the product which you choose to buy and can have a talk about reiceving of the product and for a trial use as well if the seller allows.
+        <br><br>
+        <img src="/assets/Profile Screenshot from 2020-06-06 12-08-06.png">
+        <br><br>
+        6) You can also sell products which are in good condition and are of no use to you.
+        <br><br>
+        7) There is an seperate form to add details of the products in the profile page.
+        <br><br>
+        <img src="/assets/Add product Screenshot from 2020-06-06 12-08-31.png">
+        <br><br>
+    </div>
+      {{!-- FOOTER --}}
 <footer id="footer" class="bg-dark text-white py-5">
     <div class="container">
       <p class="float-right">

@@ -175,6 +175,9 @@ app.get('/product',async (req,res)=>{
     res.send(product)
 })
 
+app.get('/togetstarted',(req,res)=>{
+    res.render('about')
+})
 
 db.sync()
   .then(() => {
