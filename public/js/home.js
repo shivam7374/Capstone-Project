@@ -17,8 +17,8 @@
       for (let p of products) {
         $('#products-container').append(
           $(`
-          <div class="col-4">
-            <div class="card m-2"> 
+          <div class="col-md-4 d-flex p-2">
+            <div class="card mb-2"id="prod"> 
             <a href="/${p.id}/product">
             <img src="${p.avatar}" class="card-img-top">
             </a>

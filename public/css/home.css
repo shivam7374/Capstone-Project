@@ -17,3 +17,9 @@ img{
     height: 300px;
     width: 50px;
 }
+#products-container{
+    flex-wrap: wrap;
+}
+#prod{
+    flex-wrap: wrap;
+}
