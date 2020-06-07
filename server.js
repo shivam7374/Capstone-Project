@@ -45,14 +45,27 @@ app.get('/signup',(req,res)=>{
     res.render('signup')
 })
 app.post('/signup',upload.single('avatar'),async (req,res)=>{
+    
+    let user=await Users.findOne({where:{
+        username:req.body.username
+    }})
+
+    if(user)
+    {
+        return res.status(404).render('signup',{
+            error:'Username already exists'
+        })
+    }
+
     console.log('req.body',req.body)
     console.log('req.file',req.file)
     const oldpath=__dirname+'/uploads/'+req.file.filename
     const newpath=__dirname+'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
     
     await fs.rename(oldpath,newpath)
-
-    const user=await Users.create({
+    
+    
+    user=await Users.create({
         username:req.body.username,
         password:req.body.password,
         email:req.body.email,
