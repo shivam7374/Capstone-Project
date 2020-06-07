@@ -1,7 +1,7 @@
 #login .container #login-row #login-column #login-box {
     margin-top: 40px;
     max-width: 600px;
-    height: 320px;
+    height: 520px;
     border: 1px solid #9C9C9C;
     background-color: #EAEAEA;
   }
@@ -17,4 +17,7 @@
   .btn-infor{
     color: white;
     background-color: #007bff;
+  }
+  .btn-adjust{
+    line-height: 1.2;
   }
