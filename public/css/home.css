@@ -19,6 +19,9 @@ img{
     height: 300px;
     width: 50px;
 }
+.crousel{
+    height: 550px;
+}
 #products-container{
     flex-wrap: wrap;
 }

@@ -1,4 +1,6 @@
   let linkcart="/0/cart"
+
+  var set1 = new Set();
   $(()=>{
     // $('#cartlist').hide()
   
@@ -37,6 +39,28 @@
           `)
         )
       }
+      for(let i=0;i<3;i++)
+      {
+        set1.add(parseInt(Math.random()*10)%3)
+        // console.log(products[x].avatar);
+        // $('#carousel-inner').append(
+        //   $(`
+        //   <div class="carousel-item">
+        //   <img class="d-block w-100 crousel" src="${products[parseInt(Math.random()*10)%3].avatar}" alt="Second slide">
+        //   </div>
+        // `))
+      }
+      for (id of set1.values())
+      {
+        $('#carousel-inner').append(
+          $(`
+          <div class="carousel-item">
+          <a href="/${products[id].id}/product">
+          <img class="d-block w-100 crousel" src="${products[id].avatar}" alt="Second slide">
+          </a>
+          </div>
+        `))
+      }   
     })
   }
   // let pos=2
