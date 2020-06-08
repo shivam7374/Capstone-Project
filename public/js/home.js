@@ -56,7 +56,7 @@
           $(`
           <div class="carousel-item">
           <a href="/${products[id].id}/product">
-          <img class="d-block w-100 crousel" src="${products[id].avatar}" alt="Second slide">
+          <img class="d-block w-75 crousel" src="${products[id].avatar}" alt="Second slide">
           </a>
           </div>
         `))

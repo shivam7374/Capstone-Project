@@ -19,8 +19,14 @@ img{
     height: 300px;
     width: 50px;
 }
+.carousel-inner > .carousel-item img {
+    margin: 0 auto;
+  }
 .crousel{
     height: 600px;
+}
+.carousel-inner{
+    background-color: black;
 }
 #products-container{
     flex-wrap: wrap;
