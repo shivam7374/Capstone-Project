@@ -40,6 +40,15 @@
           `)
         )
       }
+      set1.add(0)
+      $('#carousel-inner').append(
+        $(`
+        <div class="carousel-item active">
+        <a href="/${products[0].id}/product">
+        <img class="d-block w-75 crousel" src="${products[0].avatar}" alt="Second slide">
+        </a>
+        </div>
+      `))
       for(let i=0;i<3;i++)
       {
         set1.add(parseInt(Math.random()*10)%3)
@@ -53,6 +62,7 @@
       }
       for (id of set1.values())
       {
+        if(id!=0){
         $('#carousel-inner').append(
           $(`
           <div class="carousel-item">
@@ -61,7 +71,7 @@
           </a>
           </div>
         `))
-      }   
+      }   }
     })
   }
   // let pos=2
