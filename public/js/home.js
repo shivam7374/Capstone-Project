@@ -49,9 +49,9 @@
         </a>
         </div>
       `))
-      for(let i=0;i<3;i++)
+      for(let i=0;i<5;i++)
       {
-        set1.add(parseInt(Math.random()*10)%3)
+        set1.add(parseInt(Math.random()*10)%5)
         // console.log(products[x].avatar);
         // $('#carousel-inner').append(
         //   $(`
