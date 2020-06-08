@@ -12,6 +12,8 @@
 }
 .cart{
     height: 25px;
+    font-weight: bolder;
+    /* text-align: right */
 }
 img{
     height: 300px;
