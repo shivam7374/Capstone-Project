@@ -6,6 +6,7 @@
   
     let cart=document.getElementById('cart')
     setInterval(function(){cart.innerHTML=`<a class="navbar-brand" href=${linkcart}>
+    &nbsp;
     <img class="d-inline cart" src="../assets/cart.png">Cart</a>`}, 1000)
   })
   
