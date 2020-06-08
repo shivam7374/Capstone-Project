@@ -41,6 +41,16 @@ app.use(session({
 app.get('/',(req,res)=>{
     res.render('home')
 })
+
+hashCode = function(s) {
+    var h = 0, l = s.length, i = 0;
+    if ( l > 0 )
+      while (i < l)
+        h = (h << 5) - h + s.charCodeAt(i++) | 0;
+    return h;
+  }
+
+
 app.get('/signup',(req,res)=>{
     res.render('signup')
 })
@@ -67,7 +77,7 @@ app.post('/signup',upload.single('avatar'),async (req,res)=>{
     
     user=await Users.create({
         username:req.body.username,
-        password:req.body.password,
+        password:hashCode(req.body.password),
         email:req.body.email,
         avatar:'/images/'+'avatar_'+req.body.username+'.'+req.file.mimetype.split('/').pop()
 
@@ -92,7 +102,7 @@ app.post('/login',async (req,res)=>{
         })
     }
 
-    if(user.password!=req.body.password)
+    if(user.password!=hashCode(req.body.password))
     {
         return res.status(401).render('login',{
             error:'Wrong password'
