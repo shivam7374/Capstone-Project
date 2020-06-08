@@ -35,7 +35,6 @@ set = new Set(res3)
           // i=i+1
           $('#products-container').append(
             $(`
-            <center>
             <div class="col-4">
               <div class="card m-2"> 
               <a href="/${p.id}/product">
@@ -51,7 +50,6 @@ set = new Set(res3)
                   </div>
               </div>
             </div>
-            </center>
             
             `)
           )
