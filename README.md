@@ -22,3 +22,19 @@ Capstone Project CB FSNJS 2020
 7) There is an seperate form to add details of the products in the profile page.
 ![Screenshot from 2020-06-11 20-12-56](https://user-images.githubusercontent.com/55014891/84400715-fe61b000-ac1f-11ea-9aa4-7c1cd34b4e3c.png)
 >>>>>>> 33818f35dd9836cb3a11cd814e40c9ec9ab2ff6e
+
+
+# E-Commerce
+Amazon like Site
+##Please solve the unsolved issues whenever free!!!!
+##
+OPEN E-Commerce folder in the repository and not directly from inside the repository and run server.js to start the site
+## 29 MAY 2020
+Issue- Adjust Image Size and Socket Connection via username
+![Screenshot from 2020-05-29 16-05-47](https://user-images.githubusercontent.com/55014891/83253038-eaeb2980-a1c9-11ea-8ad6-d1a089637290.png)
+![Screenshot from 2020-05-29 16-06-30](https://user-images.githubusercontent.com/55014891/83253041-ed4d8380-a1c9-11ea-8432-a5fa0c953c0c.png)
+
+## 28 MAY 2020
+Issue- Images, JS and CSS file not loading(RESOLVED)
+![Screenshot from 2020-05-28 21-57-27](https://user-images.githubusercontent.com/55014891/83167979-6f886a00-a12e-11ea-8b2d-7f8bcdeafea5.png)
+![Screenshot from 2020-05-28 21-57-41](https://user-images.githubusercontent.com/55014891/83167983-72835a80-a12e-11ea-8851-abf351fc2597.png)
