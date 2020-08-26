@@ -8,7 +8,7 @@ $(() => {
   setInterval(function () {
     cart.innerHTML = `<a class="navbar-brand" href=${linkcart}>
     &nbsp;
-    <img class="d-inline cart" src="https://t4.ftcdn.net/jpg/01/63/42/79/240_F_163427943_W56xtj7YydS4YujdUqQot94IINtt91FV.jpg">Cart</a>`;
+    <img class="d-inline cart" src="https://image.flaticon.com/icons/svg/711/711192.svg">Cart</a>`;
   }, 1000);
 });
 
